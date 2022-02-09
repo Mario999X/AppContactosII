@@ -13,7 +13,7 @@
       <VBox fx:id="vBoxIzquierda" maxWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #edf4fa;" StackPane.alignment="TOP_LEFT">
          <children>
             <Button fx:id="btnPreferencias" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#preferenciasMenu" text="%btnPreferencias" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%btnGrafica" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#vistaGrafica" text="%btnGrafica" />
             <Button fx:id="btnSalir" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#salirApp" text="%btnSalir" />
             <Button fx:id="btnDetalle" mnemonicParsing="false" onAction="#vistaDetalle" text="%btnDetalle">
                <VBox.margin>
@@ -27,5 +27,6 @@
       </VBox>
       <Button fx:id="btnMenu" mnemonicParsing="false" onAction="#desplegacion" text="%btnMenu" StackPane.alignment="TOP_LEFT" />
       <fx:include fx:id="vistaAnidada" source=" AppAnidada.fxml" />
+      <fx:include fx:id="vistaGrafica" source="AppGrafica.fxml" />
    </children>
 </StackPane>

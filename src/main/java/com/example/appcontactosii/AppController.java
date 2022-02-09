@@ -1,11 +1,14 @@
 package com.example.appcontactosii;
 
 import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
 
@@ -25,9 +28,9 @@ public class AppController implements Initializable {
     @FXML
     private VBox vBoxIzquierda;
     @FXML
-    private StackPane vistaPrincipal, vistaAnidada;
+    private StackPane vistaPrincipal, vistaAnidada, vistaGrafica;
     @FXML
-    private ListView listaContactos;
+    private ListView <String> listaContactos;
 
     private AppAnidadaController appAnidadaController;
 
@@ -40,8 +43,22 @@ public class AppController implements Initializable {
         vBoxIzquierda.setTranslateX(-100);
         desplegado = false;
         vistaAnidada.setVisible(false);
+        vistaGrafica.setVisible(false);
+
+
+        ObservableList<String> listaDatos = FXCollections.observableArrayList(
+                "C", "Java", "Python", "C++", "C#", "Visual Basic", "JavaScript", "PHP", "R",
+                "SQL", "Perl", "Groovy", "Ruby", "Go", "MATLAB", "Swift", "Assembly language",
+                "Objective-C", "Classic Visual Basic", "PL/SQL");
+        listaContactos.setItems(listaDatos);
+        listaContactos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        listaContactos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null)
+                System.out.println("Hola: " + newValue);
+        });
 
     }
+
 
     @FXML
     private void desplegacion() {
@@ -69,6 +86,13 @@ public class AppController implements Initializable {
     private void vistaDetalle(){
 
         vistaAnidada.setVisible(true);
+
+    }
+
+    @FXML
+    private void vistaGrafica(){
+
+        vistaGrafica.setVisible(true);
 
     }
 
