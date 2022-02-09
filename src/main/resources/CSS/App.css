@@ -1,0 +1,24 @@
+.button{
+    -fx-border-color: null;
+    -fx-background-color: black;
+    -fx-background-radius: 5px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #eeeeee;
+}
+
+.button:hover  {
+    -fx-background-color: #555555;
+
+}
+
+.label{
+    -fx-font-size: 13px;
+}
+
+#btnAtras .ikonli-font-icon {
+    -fx-icon-color: white;
+}
+
+#btnAtras:hover .ikonli-font-icon{
+    -fx-icon-color: black ;
+}

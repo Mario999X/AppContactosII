@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:id="vistaPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../CSS/App.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appcontactosii.AppController">
+   <children>
+      <VBox fx:id="vBoxCentral" maxWidth="-Infinity" prefHeight="400.0" prefWidth="125.0" style="-fx-background-color: #ccf5ff;" StackPane.alignment="TOP_CENTER">
+         <children>
+            <ListView fx:id="listaContactos" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ccf5ff;" VBox.vgrow="ALWAYS" />
+         </children></VBox>
+      <VBox fx:id="vBoxIzquierda" maxWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #edf4fa;" StackPane.alignment="TOP_LEFT">
+         <children>
+            <Button fx:id="btnPreferencias" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#preferenciasMenu" text="%btnPreferencias" />
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="%btnGrafica" />
+            <Button fx:id="btnSalir" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#salirApp" text="%btnSalir" />
+            <Button fx:id="btnDetalle" mnemonicParsing="false" onAction="#vistaDetalle" text="%btnDetalle">
+               <VBox.margin>
+                  <Insets left="23.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+         <StackPane.margin>
+            <Insets />
+         </StackPane.margin>
+      </VBox>
+      <Button fx:id="btnMenu" mnemonicParsing="false" onAction="#desplegacion" text="%btnMenu" StackPane.alignment="TOP_LEFT" />
+      <fx:include fx:id="vistaAnidada" source=" AppAnidada.fxml" />
+   </children>
+</StackPane>
