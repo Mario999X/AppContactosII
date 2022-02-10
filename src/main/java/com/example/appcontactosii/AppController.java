@@ -3,13 +3,11 @@ package com.example.appcontactosii;
 import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
 import org.json.JSONArray;
@@ -38,7 +36,7 @@ public class AppController implements Initializable {
     @FXML
     private StackPane vistaPrincipal, vistaAnidada, vistaGrafica;
     @FXML
-    private ListView<Persona> listaContactos;
+    private ListView<Persona> listaViewContactos;
 
     ObservableList<Persona> listaDatos;
 
@@ -55,10 +53,10 @@ public class AppController implements Initializable {
         desplegado = false;
         vistaAnidada.setVisible(false);
         vistaGrafica.setVisible(false);
-        iniciaTabla();
-        listaContactos.setItems(listaDatos);
-        listaContactos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        listaContactos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+        iniciaLista();
+        listaViewContactos.setItems(listaDatos);
+        //listaContactos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        listaViewContactos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null)
                 System.out.println("Hola: " + newValue);
         });
@@ -116,7 +114,7 @@ public class AppController implements Initializable {
         System.exit(0);
     }
 
-    private void iniciaTabla() {
+    private void iniciaLista() {
 
         Runnable task = () -> {
 
@@ -129,7 +127,7 @@ public class AppController implements Initializable {
             try {
                 response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-                listaContactos.getItems().removeAll(listaDatos);
+                listaViewContactos.getItems().removeAll(listaDatos);
                 JSONArray dataArray = new JSONArray(response.body());
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject row = dataArray.getJSONObject(i);

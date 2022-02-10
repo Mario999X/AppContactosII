@@ -8,7 +8,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return correo;
+        return nombre;
     }
 
 
