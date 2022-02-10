@@ -6,12 +6,17 @@ public class Persona {
     private String fechaNacimiento;
 
 
+    @Override
+    public String toString() {
+        return correo;
+    }
+
+
     public Persona(String nombre, String correo, String fechaNacimiento) {
         this.nombre = nombre;
         this.correo = correo;
         this.fechaNacimiento = fechaNacimiento;
     }
-
 
 
     public String getNombre() {

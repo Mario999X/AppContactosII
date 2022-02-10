@@ -3,6 +3,7 @@ package com.example.appcontactosii;
 import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -11,8 +12,15 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.ResourceBundle;
 
 
@@ -30,7 +38,9 @@ public class AppController implements Initializable {
     @FXML
     private StackPane vistaPrincipal, vistaAnidada, vistaGrafica;
     @FXML
-    private ListView <String> listaContactos;
+    private ListView<Persona> listaContactos;
+
+    ObservableList<Persona> listaDatos;
 
     private AppAnidadaController appAnidadaController;
 
@@ -40,16 +50,12 @@ public class AppController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        listaDatos = FXCollections.observableArrayList();
         vBoxIzquierda.setTranslateX(-100);
         desplegado = false;
         vistaAnidada.setVisible(false);
         vistaGrafica.setVisible(false);
-
-
-        ObservableList<String> listaDatos = FXCollections.observableArrayList(
-                "C", "Java", "Python", "C++", "C#", "Visual Basic", "JavaScript", "PHP", "R",
-                "SQL", "Perl", "Groovy", "Ruby", "Go", "MATLAB", "Swift", "Assembly language",
-                "Objective-C", "Classic Visual Basic", "PL/SQL");
+        iniciaTabla();
         listaContactos.setItems(listaDatos);
         listaContactos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         listaContactos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -83,21 +89,21 @@ public class AppController implements Initializable {
     }
 
     @FXML
-    private void vistaDetalle(){
+    private void vistaDetalle() {
 
         vistaAnidada.setVisible(true);
 
     }
 
     @FXML
-    private void vistaGrafica(){
+    private void vistaGrafica() {
 
         vistaGrafica.setVisible(true);
 
     }
 
     @FXML
-    private void preferenciasMenu(){
+    private void preferenciasMenu() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(null);
         alert.setTitle("Preferencias");
@@ -106,9 +112,42 @@ public class AppController implements Initializable {
     }
 
     @FXML
-    private void salirApp(){
+    private void salirApp() {
         System.exit(0);
     }
 
+    private void iniciaTabla() {
+
+        Runnable task = () -> {
+
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://fakestoreapi.com/products"))
+                    .build();
+
+            HttpResponse<String> response = null;
+            try {
+                response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+                listaContactos.getItems().removeAll(listaDatos);
+                JSONArray dataArray = new JSONArray(response.body());
+                for (int i = 0; i < dataArray.length(); i++) {
+                    JSONObject row = dataArray.getJSONObject(i);
+                    listaDatos.add(new Persona("" + row.getInt("id"),
+                            row.getString("title"),
+                            row.getString("image")));
+                }
+                System.out.print(listaDatos);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        };
+
+        new Thread(task).start();
+
+    }
 }
 

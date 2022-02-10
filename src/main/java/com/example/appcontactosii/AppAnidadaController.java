@@ -29,7 +29,7 @@ public class AppAnidadaController {
 
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         nombreContacto.setText(dora.getNombre());
         correoContacto.setText(dora.getCorreo());
         nacimientoContacto.setText(dora.getFechaNacimiento());
@@ -45,7 +45,7 @@ public class AppAnidadaController {
      */
 
     @FXML
-    private void volverPrincipal(){
+    private void volverPrincipal() {
         principalAnidada.setVisible(false);
     }
 }
