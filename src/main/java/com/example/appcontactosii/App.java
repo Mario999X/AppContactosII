@@ -19,7 +19,6 @@ public class App extends Application {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("i18n/strings", spanish);
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AppView.fxml"), resourceBundle);
 
-
         Scene scene = new Scene(fxmlLoader.load());
         //scene.getStylesheets().add("App.css");
         stage.setTitle("El IntelliJ de clase me trolea con los idiomas");
@@ -27,7 +26,5 @@ public class App extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
+    public static void main(String[] args) {launch();}
 }

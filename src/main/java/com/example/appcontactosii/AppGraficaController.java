@@ -7,20 +7,12 @@ import javafx.scene.layout.StackPane;
 
 public class AppGraficaController {
 
-    @FXML
-    private StackPane principalGrafica;
-    @FXML
-    private Button btnAtrasG;
-    @FXML
-    private BarChart graficaEdad;
+    @FXML private StackPane principalGrafica;
+    @FXML private Button btnAtrasG;
+    @FXML private BarChart graficaEdad;
 
+    @FXML public void initialize(){}
 
-    @FXML
-    public void initialize(){
-
-    }
-
-    @FXML
-    private void volverPrincipalG(){ principalGrafica.setVisible(false);}
+    @FXML private void volverPrincipalG(){ principalGrafica.setVisible(false);}
 
 }

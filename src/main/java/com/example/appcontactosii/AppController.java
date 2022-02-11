@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
 import org.json.JSONArray;
@@ -21,30 +22,18 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ResourceBundle;
 
-
 // CONTROLADOR VISTA PRINCIPAL
 public class AppController implements Initializable {
-
     private boolean desplegado;
-
     private TranslateTransition animation, animationBtn;
-
-    @FXML
-    private Button btnMenu;
-    @FXML
-    private VBox vBoxIzquierda;
-    @FXML
-    private StackPane vistaPrincipal, vistaAnidada, vistaGrafica;
-    @FXML
-    private ListView<Persona> listaViewContactos;
-
-    ObservableList<Persona> listaDatos;
-
+    @FXML private Button btnMenu;
+    @FXML private VBox vBoxIzquierda;
+    @FXML private StackPane vistaPrincipal, vistaAnidada, vistaGrafica;
+    @FXML private ListView<Personaje> listaViewPersonajes;
+    private ObservableList<Personaje> listaDatos;
     private AppAnidadaController appAnidadaController;
 
-
-    public AppController() {
-    }
+    public AppController() {}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -54,18 +43,16 @@ public class AppController implements Initializable {
         vistaAnidada.setVisible(false);
         vistaGrafica.setVisible(false);
         iniciaLista();
-        listaViewContactos.setItems(listaDatos);
-        //listaContactos.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        listaViewContactos.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+        listaViewPersonajes.setItems(listaDatos);
+        //listaViewPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        listaViewPersonajes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null)
-                System.out.println("Hola: " + newValue);
+                //System.out.println("Hola: " + newValue);
+                vistaAnidada.setVisible(true);
         });
-
     }
 
-
-    @FXML
-    private void desplegacion() {
+    @FXML private void desplegacion() {
         animation = new TranslateTransition(Duration.millis(300), vBoxIzquierda);
         animationBtn = new TranslateTransition(Duration.millis(300), btnMenu);
 
@@ -86,22 +73,11 @@ public class AppController implements Initializable {
         animationBtn.play();
     }
 
-    @FXML
-    private void vistaDetalle() {
+    @FXML private void vistaDetalle() {vistaAnidada.setVisible(true);}
 
-        vistaAnidada.setVisible(true);
+    @FXML private void vistaGrafica() {vistaGrafica.setVisible(true);}
 
-    }
-
-    @FXML
-    private void vistaGrafica() {
-
-        vistaGrafica.setVisible(true);
-
-    }
-
-    @FXML
-    private void preferenciasMenu() {
+    @FXML private void preferenciasMenu() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(null);
         alert.setTitle("Preferencias");
@@ -109,31 +85,26 @@ public class AppController implements Initializable {
         alert.showAndWait();
     }
 
-    @FXML
-    private void salirApp() {
+    @FXML private void salirApp() {
         System.exit(0);
     }
 
     private void iniciaLista() {
-
         Runnable task = () -> {
-
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://fakestoreapi.com/products"))
+                    .uri(URI.create("https://rickandmortyapi.com/api/character/1,2"))
                     .build();
-
             HttpResponse<String> response = null;
             try {
                 response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-                listaViewContactos.getItems().removeAll(listaDatos);
+                listaViewPersonajes.getItems().removeAll(listaDatos);
                 JSONArray dataArray = new JSONArray(response.body());
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject row = dataArray.getJSONObject(i);
-                    listaDatos.add(new Persona("" + row.getInt("id"),
-                            row.getString("title"),
-                            row.getString("image")));
+                    listaDatos.add(new Personaje(row.getInt("id"),
+                            row.getString("name"),
+                            row.getString("status")));
                 }
                 System.out.print(listaDatos);
             } catch (IOException e) {
@@ -141,11 +112,10 @@ public class AppController implements Initializable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         };
-
         new Thread(task).start();
-
     }
+
+
 }
 
