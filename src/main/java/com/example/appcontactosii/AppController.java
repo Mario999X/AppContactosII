@@ -32,6 +32,7 @@ public class AppController implements Initializable {
     @FXML private ListView<Personaje> listaViewPersonajes;
     private ObservableList<Personaje> listaDatos;
     private AppAnidadaController appAnidadaController;
+    private Personaje personaje;
 
     public AppController() {}
 
@@ -48,7 +49,7 @@ public class AppController implements Initializable {
         listaViewPersonajes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null)
                 //System.out.println("Hola: " + newValue);
-                vistaAnidada.setVisible(true);
+                vistaDetalle();
         });
     }
 
@@ -73,7 +74,12 @@ public class AppController implements Initializable {
         animationBtn.play();
     }
 
-    @FXML private void vistaDetalle() {vistaAnidada.setVisible(true);}
+    @FXML private void vistaDetalle() {vistaAnidada.setVisible(true);
+        appAnidadaController.getIdPersonaje(listaDatos);
+        appAnidadaController.getNombrePersonaje();
+        appAnidadaController.getEstadoSalud();
+
+    }
 
     @FXML private void vistaGrafica() {vistaGrafica.setVisible(true);}
 
@@ -106,7 +112,7 @@ public class AppController implements Initializable {
                             row.getString("name"),
                             row.getString("status")));
                 }
-                System.out.print(listaDatos);
+                System.out.print("Lista datos: " +listaDatos);
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {

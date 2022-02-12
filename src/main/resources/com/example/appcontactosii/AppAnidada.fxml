@@ -34,9 +34,9 @@
             </ImageView>
             <VBox fx:id="vBoxInfo" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label fx:id="nombreContacto" text="Nombre: " />
-                  <Label fx:id="correoContacto" text="Correo: " />
-                  <Label fx:id="nacimientoContacto" text="Otros datos: " />
+                  <Label fx:id="idPersonaje" text="Nombre: " />
+                  <Label fx:id="nombrePersonaje" text="Correo: " />
+                  <Label fx:id="estadoSalud" text="Otros datos: " />
                </children>
                <VBox.margin>
                   <Insets />
