@@ -11,6 +11,8 @@ public class Personaje {
         return nombre;
     }
 
+    public Personaje() {
+    }
 
     public Personaje(int id, String nombre, String estado) {
         this.id = id;

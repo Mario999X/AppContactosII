@@ -28,9 +28,10 @@ public class AppController implements Initializable {
     private TranslateTransition animation, animationBtn;
     @FXML private Button btnMenu;
     @FXML private VBox vBoxIzquierda;
-    @FXML private StackPane vistaPrincipal, vistaAnidada, vistaGrafica;
+    @FXML private StackPane appPrincipal, appAnidada, appGrafica;
     @FXML private ListView<Personaje> listaViewPersonajes;
     private ObservableList<Personaje> listaDatos;
+    @FXML
     private AppAnidadaController appAnidadaController;
     private Personaje personaje;
 
@@ -41,15 +42,17 @@ public class AppController implements Initializable {
         listaDatos = FXCollections.observableArrayList();
         vBoxIzquierda.setTranslateX(-100);
         desplegado = false;
-        vistaAnidada.setVisible(false);
-        vistaGrafica.setVisible(false);
+        appAnidada.setVisible(false);
+        appGrafica.setVisible(false);
         iniciaLista();
         listaViewPersonajes.setItems(listaDatos);
-        //listaViewPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        listaViewPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         listaViewPersonajes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null)
-                //System.out.println("Hola: " + newValue);
+            System.out.println(newValue);
+            if (newValue != null) {
+                appAnidadaController.cargarPersona(newValue.getId(), newValue.getNombre(), newValue.getEstado());
                 vistaDetalle();
+            }
         });
     }
 
@@ -74,14 +77,11 @@ public class AppController implements Initializable {
         animationBtn.play();
     }
 
-    @FXML private void vistaDetalle() {vistaAnidada.setVisible(true);
-        appAnidadaController.getIdPersonaje(listaDatos);
-        appAnidadaController.getNombrePersonaje();
-        appAnidadaController.getEstadoSalud();
+    @FXML private void vistaDetalle() {
+        appAnidada.setVisible(true);}
 
-    }
-
-    @FXML private void vistaGrafica() {vistaGrafica.setVisible(true);}
+    @FXML private void vistaGrafica() {
+        appGrafica.setVisible(true);}
 
     @FXML private void preferenciasMenu() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -119,9 +119,12 @@ public class AppController implements Initializable {
                 e.printStackTrace();
             }
         };
+
         new Thread(task).start();
     }
 
-
+    public ObservableList<Personaje> getListaDatos() {
+        return listaDatos;
+    }
 }
 

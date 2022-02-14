@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane fx:id="vistaPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../CSS/App.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appcontactosii.AppController">
+<StackPane fx:id="appPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../CSS/App.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appcontactosii.AppController">
    <children>
       <VBox fx:id="vBoxCentral" maxWidth="-Infinity" prefHeight="400.0" prefWidth="290.0" style="-fx-background-color: #ccf5ff;" StackPane.alignment="TOP_CENTER">
          <children>
@@ -26,7 +26,7 @@
          </StackPane.margin>
       </VBox>
       <Button fx:id="btnMenu" mnemonicParsing="false" onAction="#desplegacion" text="%btnMenu" StackPane.alignment="TOP_LEFT" />
-      <fx:include fx:id="vistaAnidada" source=" AppAnidada.fxml" />
-      <fx:include fx:id="vistaGrafica" source="AppGrafica.fxml" />
+      <fx:include fx:id="appAnidada" source="AppAnidada.fxml" />
+      <fx:include fx:id="appGrafica" source="AppGrafica.fxml" />
    </children>
 </StackPane>
