@@ -15,18 +15,13 @@
             <Button fx:id="btnPreferencias" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#preferenciasMenu" text="%btnPreferencias" />
             <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#vistaGrafica" text="%btnGrafica" />
             <Button fx:id="btnSalir" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#salirApp" text="%btnSalir" />
-            <Button fx:id="btnDetalle" mnemonicParsing="false" onAction="#vistaDetalle" text="%btnDetalle">
-               <VBox.margin>
-                  <Insets left="23.0" />
-               </VBox.margin>
-            </Button>
          </children>
          <StackPane.margin>
             <Insets />
          </StackPane.margin>
       </VBox>
       <Button fx:id="btnMenu" mnemonicParsing="false" onAction="#desplegacion" text="%btnMenu" StackPane.alignment="TOP_LEFT" />
-      <fx:include fx:id="appAnidada" source="AppAnidada.fxml" />
-      <fx:include fx:id="appGrafica" source="AppGrafica.fxml" />
+      <fx:include fx:id="appDetalle" source="appDetalle.fxml" />
+      <fx:include fx:id="appGrafica" source="appGrafica.fxml" />
    </children>
 </StackPane>

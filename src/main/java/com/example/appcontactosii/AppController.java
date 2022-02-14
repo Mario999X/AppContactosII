@@ -26,37 +26,39 @@ import java.util.ResourceBundle;
 public class AppController implements Initializable {
     private boolean desplegado;
     private TranslateTransition animation, animationBtn;
-    @FXML private Button btnMenu;
-    @FXML private VBox vBoxIzquierda;
-    @FXML private StackPane appPrincipal, appAnidada, appGrafica;
-    @FXML private ListView<Personaje> listaViewPersonajes;
+    @FXML
+    private Button btnMenu;
+    @FXML
+    private VBox vBoxIzquierda;
+    @FXML
+    private StackPane appPrincipal, appDetalle, appGrafica;
+    @FXML
+    private ListView<Personaje> listaViewPersonajes;
     private ObservableList<Personaje> listaDatos;
     @FXML
-    private AppAnidadaController appAnidadaController;
-    private Personaje personaje;
-
-    public AppController() {}
+    private AppDetalleController appDetalleController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         listaDatos = FXCollections.observableArrayList();
         vBoxIzquierda.setTranslateX(-100);
         desplegado = false;
-        appAnidada.setVisible(false);
+        appDetalle.setVisible(false);
         appGrafica.setVisible(false);
         iniciaLista();
         listaViewPersonajes.setItems(listaDatos);
         listaViewPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         listaViewPersonajes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            System.out.println(newValue);
             if (newValue != null) {
-                appAnidadaController.cargarPersona(newValue.getId(), newValue.getNombre(), newValue.getEstado());
+                appDetalleController.cargarPersona(newValue.getImagen(), newValue.getId(), newValue.getNombre(), newValue.getEstado(),
+                        newValue.getEspecie(), newValue.getGenero());
                 vistaDetalle();
             }
         });
     }
 
-    @FXML private void desplegacion() {
+    @FXML
+    private void desplegacion() {
         animation = new TranslateTransition(Duration.millis(300), vBoxIzquierda);
         animationBtn = new TranslateTransition(Duration.millis(300), btnMenu);
 
@@ -77,13 +79,18 @@ public class AppController implements Initializable {
         animationBtn.play();
     }
 
-    @FXML private void vistaDetalle() {
-        appAnidada.setVisible(true);}
+    @FXML
+    private void vistaDetalle() {
+        appDetalle.setVisible(true);
+    }
 
-    @FXML private void vistaGrafica() {
-        appGrafica.setVisible(true);}
+    @FXML
+    private void vistaGrafica() {
+        appGrafica.setVisible(true);
+    }
 
-    @FXML private void preferenciasMenu() {
+    @FXML
+    private void preferenciasMenu() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(null);
         alert.setTitle("Preferencias");
@@ -91,7 +98,8 @@ public class AppController implements Initializable {
         alert.showAndWait();
     }
 
-    @FXML private void salirApp() {
+    @FXML
+    private void salirApp() {
         System.exit(0);
     }
 
@@ -99,7 +107,7 @@ public class AppController implements Initializable {
         Runnable task = () -> {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://rickandmortyapi.com/api/character/1,2"))
+                    .uri(URI.create("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10"))
                     .build();
             HttpResponse<String> response = null;
             try {
@@ -108,11 +116,13 @@ public class AppController implements Initializable {
                 JSONArray dataArray = new JSONArray(response.body());
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject row = dataArray.getJSONObject(i);
-                    listaDatos.add(new Personaje(row.getInt("id"),
+                    listaDatos.add(new Personaje(row.getString("image"),
+                            row.getInt("id"),
                             row.getString("name"),
-                            row.getString("status")));
+                            row.getString("status"),
+                            row.getString("species"),
+                            row.getString("gender")));
                 }
-                System.out.print("Lista datos: " +listaDatos);
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
@@ -123,8 +133,5 @@ public class AppController implements Initializable {
         new Thread(task).start();
     }
 
-    public ObservableList<Personaje> getListaDatos() {
-        return listaDatos;
-    }
 }
 

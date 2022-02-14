@@ -17,14 +17,18 @@ public class App extends Application {
         Locale spanish = new Locale("es", "ES");
         Locale english = new Locale("en", "EN");
         ResourceBundle resourceBundle = ResourceBundle.getBundle("i18n/strings", spanish);
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AppView.fxml"), resourceBundle);
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("appPrincipal.fxml"), resourceBundle);
 
         Scene scene = new Scene(fxmlLoader.load());
         //scene.getStylesheets().add("App.css");
-        stage.setTitle("El IntelliJ de clase me trolea con los idiomas");
+        stage.setTitle("Los nombres son el boss final de la programación.");
         stage.setScene(scene);
+        stage.setMinHeight(600);
+        stage.setMinWidth(620);
         stage.show();
     }
 
-    public static void main(String[] args) {launch();}
+    public static void main(String[] args) {
+        launch();
+    }
 }
