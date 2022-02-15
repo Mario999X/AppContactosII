@@ -45,6 +45,11 @@
         </dependency>
         <dependency>
             <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-boxicons-pack</artifactId>
+            <version>12.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
             <artifactId>ikonli-javafx</artifactId>
             <version>12.3.0</version>
         </dependency>

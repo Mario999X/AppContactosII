@@ -20,7 +20,6 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("appPrincipal.fxml"), resourceBundle);
 
         Scene scene = new Scene(fxmlLoader.load());
-        //scene.getStylesheets().add("App.css");
         stage.setTitle("Los nombres son el boss final de la programación.");
         stage.setScene(scene);
         stage.setMinHeight(600);

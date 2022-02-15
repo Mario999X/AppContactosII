@@ -26,10 +26,12 @@ import java.util.ResourceBundle;
 public class AppController implements Initializable {
     private boolean desplegado;
     private TranslateTransition animation, animationBtn;
+
     @FXML
     private Button btnMenu;
     @FXML
     private VBox vBoxIzquierda;
+
     @FXML
     private StackPane appPrincipal, appDetalle, appGrafica;
     @FXML
@@ -50,7 +52,7 @@ public class AppController implements Initializable {
         listaViewPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         listaViewPersonajes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                appDetalleController.cargarPersona(newValue.getImagen(), newValue.getId(), newValue.getNombre(), newValue.getEstado(),
+                appDetalleController.cargarPersona(newValue.getImagen(), newValue.getNombre(), newValue.getEstado(),
                         newValue.getEspecie(), newValue.getGenero());
                 vistaDetalle();
             }
@@ -107,7 +109,8 @@ public class AppController implements Initializable {
         Runnable task = () -> {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10"))
+                    .uri(URI.create("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15" +
+                            "16,17,18,19,20"))
                     .build();
             HttpResponse<String> response = null;
             try {
@@ -117,7 +120,6 @@ public class AppController implements Initializable {
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject row = dataArray.getJSONObject(i);
                     listaDatos.add(new Personaje(row.getString("image"),
-                            row.getInt("id"),
                             row.getString("name"),
                             row.getString("status"),
                             row.getString("species"),

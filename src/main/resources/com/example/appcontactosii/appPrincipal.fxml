@@ -3,6 +3,7 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
 
 <StackPane fx:id="appPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../CSS/App.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appcontactosii.AppController">
    <children>
@@ -13,8 +14,16 @@
       <VBox fx:id="vBoxIzquierda" maxWidth="-Infinity" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #edf4fa;" StackPane.alignment="TOP_LEFT">
          <children>
             <Button fx:id="btnPreferencias" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#preferenciasMenu" text="%btnPreferencias" />
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#vistaGrafica" text="%btnGrafica" />
-            <Button fx:id="btnSalir" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#salirApp" text="%btnSalir" />
+            <Button fx:id="btnGrafica" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#vistaGrafica" text="%btnGrafica">
+               <graphic>
+                  <FontIcon iconLiteral="bx-pie-chart-alt" />
+               </graphic>
+            </Button>
+            <Button fx:id="btnSalir" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#salirApp" text="%btnSalir">
+               <graphic>
+                  <FontIcon iconLiteral="bx-run" />
+               </graphic>
+            </Button>
          </children>
          <StackPane.margin>
             <Insets />

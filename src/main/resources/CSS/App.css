@@ -12,7 +12,7 @@
 }
 
 .label{
-    -fx-font-size: 13px;
+    -fx-font-size: 15px;
 }
 
 #btnAtras .ikonli-font-icon {
@@ -20,5 +20,29 @@
 }
 
 #btnAtras:hover .ikonli-font-icon{
+    -fx-icon-color: black ;
+}
+
+#btnAtrasG .ikonli-font-icon {
+    -fx-icon-color: white;
+}
+
+#btnAtrasG:hover .ikonli-font-icon{
+    -fx-icon-color: black ;
+}
+
+#btnGrafica .ikonli-font-icon {
+    -fx-icon-color: white;
+}
+
+#btnGrafica:hover .ikonli-font-icon{
+    -fx-icon-color: black ;
+}
+
+#btnSalir .ikonli-font-icon {
+    -fx-icon-color: white;
+}
+
+#btnSalir:hover .ikonli-font-icon{
     -fx-icon-color: black ;
 }
