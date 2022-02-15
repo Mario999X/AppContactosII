@@ -39,6 +39,8 @@ public class AppController implements Initializable {
     private ObservableList<Personaje> listaDatos;
     @FXML
     private AppDetalleController appDetalleController;
+    @FXML
+    private AppGraficaController appGraficaController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -89,7 +91,7 @@ public class AppController implements Initializable {
     @FXML
     private void vistaGrafica() {
         appGrafica.setVisible(true);
-
+        appGraficaController.cargarDatos(listaDatos);
     }
 
     @FXML
@@ -111,7 +113,7 @@ public class AppController implements Initializable {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15" +
-                            "16,17,18,19,20"))
+                            "16,17,18,19,20,21,22,23,24,25,26,27,28,29,30"))
                     .build();
             HttpResponse<String> response = null;
             try {

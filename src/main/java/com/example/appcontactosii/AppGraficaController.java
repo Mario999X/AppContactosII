@@ -19,20 +19,6 @@ public class AppGraficaController {
     @FXML
     public void initialize() {
 
-        ObservableList<PieChart.Data> datosGraficoCircular = FXCollections.observableArrayList(
-                new PieChart.Data("C", 0.1695f),
-                new PieChart.Data("Java", 0.1256f),
-                new PieChart.Data("Python", 0.1128f),
-                new PieChart.Data("C++", 0.0694f),
-                new PieChart.Data("C#", 0.0416f),
-                new PieChart.Data("Visual Basic", 0.0397f),
-                new PieChart.Data("JavaScript", 0.0214f),
-                new PieChart.Data("PHP", 0.0209f),
-                new PieChart.Data("R", 0.0199f),
-                new PieChart.Data("SQL", 0.0157f));
-        graficaGenero.setData(datosGraficoCircular);
-        graficaGenero.setClockwise(false);
-        graficaGenero.setTitle("Tipos de especies");
     }
 
     @FXML
@@ -40,5 +26,36 @@ public class AppGraficaController {
         appGrafica.setVisible(false);
     }
 
+    public void cargarDatos(ObservableList<Personaje> lista) {
+        int contadorMale = 0;
+        for (Personaje p1 : lista) {
+            if (p1.getGenero().equals("Male")) {
+                contadorMale++;
+            }
 
-}
+        }
+
+        int contadorFemale = 0;
+        for (Personaje p2 : lista) {
+            if (p2.getGenero().equals("Female")) {
+                contadorFemale++;
+            }
+        }
+
+        int contadorUnknown = 0;
+        for (Personaje p3 : lista) {
+            if (p3.getGenero().equals("unknown")) {
+                contadorUnknown++;
+            }
+        }
+
+            ObservableList<PieChart.Data> datosGraficoCircular = FXCollections.observableArrayList(
+                    new PieChart.Data("Hombre", contadorMale),
+                    new PieChart.Data("Mujer", contadorFemale),
+                    new PieChart.Data("Desconocido", contadorUnknown));
+            graficaGenero.setData(datosGraficoCircular);
+            graficaGenero.setClockwise(false);
+            graficaGenero.setTitle("Género personajes");
+        }
+
+    }
