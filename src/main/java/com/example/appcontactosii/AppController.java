@@ -89,6 +89,7 @@ public class AppController implements Initializable {
     @FXML
     private void vistaGrafica() {
         appGrafica.setVisible(true);
+
     }
 
     @FXML
