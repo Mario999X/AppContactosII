@@ -7,7 +7,7 @@
 
 <StackPane fx:id="appPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../CSS/App.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appcontactosii.AppController">
     <children>
-      <Button fx:id="btnRecarga" maxWidth="-Infinity" mnemonicParsing="false" prefWidth="100.0" StackPane.alignment="TOP_RIGHT">
+      <Button fx:id="btnRecarga" maxWidth="-Infinity" mnemonicParsing="false" onAction="#iniciaLista" prefWidth="100.0" StackPane.alignment="TOP_RIGHT">
           <graphic>
               <FontIcon iconLiteral="bx-rotate-left" />
           </graphic>

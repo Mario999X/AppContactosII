@@ -1,6 +1,7 @@
 package com.example.appcontactosii;
 
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -109,24 +110,27 @@ public class AppController implements Initializable {
         System.exit(0);
     }
 
+    @FXML
     private void iniciaLista() {
         Runnable task = () -> {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,361"))
+                    .uri(URI.create("https://rickandmortyapi.com/api/character/?page="+Math.random()*29+1))
                     .build();
             HttpResponse<String> response = null;
             try {
                 response = client.send(request, HttpResponse.BodyHandlers.ofString());
-                listaViewPersonajes.getItems().removeAll(listaDatos);
-                JSONArray dataArray = new JSONArray(response.body());
+                Platform.runLater(()->listaViewPersonajes.getItems().removeAll(listaDatos));//listaViewPersonajes.getItems().removeAll(listaDatos);
+                System.out.println(response.body());
+                JSONArray dataArray = new JSONArray(response.body().substring(163,response.body().length()-1));
+
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject row = dataArray.getJSONObject(i);
-                    listaDatos.add(new Personaje(row.getString("image"),
+                    Platform.runLater(()->listaDatos.add(new Personaje(row.getString("image"),
                             row.getString("name"),
                             row.getString("status"),
                             row.getString("species"),
-                            row.getString("gender")));
+                            row.getString("gender"))));
                 }
             } catch (IOException e) {
                 e.printStackTrace();

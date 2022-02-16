@@ -22,7 +22,7 @@ public class App extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Los nombres son el boss final de la programación.");
         stage.setScene(scene);
-        stage.setMinHeight(600);
+        stage.setMinHeight(542);
         stage.setMinWidth(620);
         stage.show();
     }
