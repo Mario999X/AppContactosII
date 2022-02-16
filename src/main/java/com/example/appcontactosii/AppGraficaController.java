@@ -40,12 +40,7 @@ public class AppGraficaController {
             }
         }
 
-        int contadorUnknown = 0;
-        for (Personaje p3 : lista) {
-            if (p3.getGenero().equals("unknown")) {
-                contadorUnknown++;
-            }
-        }
+        int contadorUnknown = lista.size() - contadorMale - contadorFemale;
 
         ObservableList<PieChart.Data> datosGraficoCircular = FXCollections.observableArrayList(
                 new PieChart.Data("Hombre", contadorMale),
@@ -72,20 +67,15 @@ public class AppGraficaController {
             }
         }
 
-        int contadorHumanoid = 0;
-        for (Personaje p6 : lista) {
-            if (p6.getEspecie().equals("Humanoid")) {
-                contadorHumanoid++;
-            }
-        }
+        int contadorResto = lista.size() - contadorAlien - contadorHuman;
 
         ObservableList<PieChart.Data> datosGraficoCircular = FXCollections.observableArrayList(
                 new PieChart.Data("Humano", contadorHuman),
                 new PieChart.Data("Alien", contadorAlien),
-                new PieChart.Data("Humanoide", contadorHumanoid));
+                new PieChart.Data("Otros", contadorResto));
         graficaEspecie.setData(datosGraficoCircular);
         graficaEspecie.setClockwise(false);
-        graficaEspecie.setTitle("Lucha de especies");
+        graficaEspecie.setTitle("Humano vs Aliens");
 
     }
 
