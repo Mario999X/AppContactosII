@@ -11,8 +11,26 @@
 
 }
 
-.label{
+.button .ikonli-font-icon {
+    -fx-icon-color: white;
+}
+
+.button:hover .ikonli-font-icon {
+    -fx-icon-color: black;
+}
+
+#appDetalle .label{
     -fx-font-size: 15px;
+}
+
+#appDetalle .label:hover{
+    -fx-underline: true;
+}
+
+.list-view .list-cell {
+    -fx-text-fill: black;
+    -fx-border-width: 0.7px;
+    -fx-border-color: black;
 }
 
 .list-cell:filled:hover {
@@ -20,34 +38,3 @@
     -fx-text-fill: white;
 }
 
-#btnAtras .ikonli-font-icon {
-    -fx-icon-color: white;
-}
-
-#btnAtras:hover .ikonli-font-icon{
-    -fx-icon-color: black ;
-}
-
-#btnAtrasG .ikonli-font-icon {
-    -fx-icon-color: white;
-}
-
-#btnAtrasG:hover .ikonli-font-icon{
-    -fx-icon-color: black ;
-}
-
-#btnGrafica .ikonli-font-icon {
-    -fx-icon-color: white;
-}
-
-#btnGrafica:hover .ikonli-font-icon{
-    -fx-icon-color: black ;
-}
-
-#btnSalir .ikonli-font-icon {
-    -fx-icon-color: white;
-}
-
-#btnSalir:hover .ikonli-font-icon{
-    -fx-icon-color: black ;
-}

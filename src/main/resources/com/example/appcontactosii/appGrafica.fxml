@@ -12,6 +12,6 @@
               <FontIcon iconLiteral="antf-aliwangwang" />
           </graphic>
       </Button>
-      <PieChart fx:id="graficaGenero" maxWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" StackPane.alignment="CENTER" />
+      <PieChart fx:id="graficaGenero" maxWidth="-Infinity" prefHeight="500.0" prefWidth="480.0" StackPane.alignment="CENTER" />
    </children>
 </StackPane>
