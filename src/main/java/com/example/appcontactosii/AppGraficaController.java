@@ -75,7 +75,7 @@ public class AppGraficaController {
                 new PieChart.Data("Otros", contadorResto));
         graficaEspecie.setData(datosGraficoCircular);
         graficaEspecie.setClockwise(false);
-        graficaEspecie.setTitle("Humano vs Aliens");
+        graficaEspecie.setTitle("Humanos vs Aliens");
 
     }
 
