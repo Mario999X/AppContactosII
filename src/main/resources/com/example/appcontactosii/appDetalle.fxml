@@ -6,57 +6,51 @@
 <?import javafx.scene.layout.*?>
 <?import org.kordamp.ikonli.javafx.*?>
 
-<StackPane fx:id="appDetalle" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
-           minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FEFEFE;"
-           xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.example.appcontactosii.AppDetalleController">
+<StackPane fx:id="appDetalle" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FEFEFE;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appcontactosii.AppDetalleController">
     <children>
-        <Button fx:id="btnAtras" mnemonicParsing="false" onAction="#volverPrincipal" text="%btnAtras"
-                StackPane.alignment="TOP_LEFT">
+        <Button fx:id="btnAtras" mnemonicParsing="false" onAction="#volverPrincipal" text="%btnAtras" StackPane.alignment="TOP_LEFT">
             <graphic>
-                <FontIcon iconLiteral="antf-aliwangwang"/>
+                <FontIcon iconLiteral="antf-aliwangwang" />
             </graphic>
         </Button>
-        <VBox fx:id="vBoxCentral" maxWidth="-Infinity" prefHeight="200.0" prefWidth="200.0"
-              style="-fx-background-color: #ccf5ff;" StackPane.alignment="CENTER">
+        <VBox fx:id="vBoxCentral" maxWidth="-Infinity" prefHeight="200.0" prefWidth="220.0" style="-fx-background-color: #ccf5ff;" StackPane.alignment="CENTER">
             <StackPane.margin>
-                <Insets/>
+                <Insets />
             </StackPane.margin>
             <children>
-                <ImageView fx:id="imagenPersonaje" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fx:id="imagenPersonaje" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                     <VBox.margin>
-                        <Insets left="25.0" right="25.0" top="30.0"/>
+                        <Insets left="25.0" right="25.0" top="30.0" />
                     </VBox.margin>
                 </ImageView>
                 <VBox fx:id="vBoxInfo" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
                     <children>
                         <Label fx:id="nombrePersonaje" text="nombrePersonaje">
                             <graphic>
-                                <FontIcon iconLiteral="bx-user"/>
+                                <FontIcon iconLiteral="bx-user" />
                             </graphic>
                         </Label>
                         <Label fx:id="estadoPersonaje" text="estadoPersonaje">
                             <graphic>
-                                <FontIcon iconLiteral="bx-dizzy"/>
+                                <FontIcon iconLiteral="bx-dizzy" />
                             </graphic>
                         </Label>
                         <Label fx:id="especiePersonaje" text="especiePersonaje">
                             <graphic>
-                                <FontIcon iconLiteral="bx-planet"/>
+                                <FontIcon iconLiteral="bx-planet" />
                             </graphic>
                         </Label>
                         <Label fx:id="generoPersonaje" text="generoPersonaje">
                             <graphic>
-                                <FontIcon iconLiteral="bx-group"/>
+                                <FontIcon iconLiteral="bx-group" />
                             </graphic>
                         </Label>
                     </children>
                     <VBox.margin>
-                        <Insets/>
+                        <Insets />
                     </VBox.margin>
                     <padding>
-                        <Insets top="20.0"/>
+                        <Insets top="20.0" />
                     </padding>
                 </VBox>
             </children>

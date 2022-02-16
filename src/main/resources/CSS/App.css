@@ -13,10 +13,15 @@
 
 .button .ikonli-font-icon {
     -fx-icon-color: white;
+    -fx-icon-size: 20px;
 }
 
 .button:hover .ikonli-font-icon {
     -fx-icon-color: black;
+}
+
+.label .ikonli-font-icon {
+    -fx-icon-size: 20px;
 }
 
 #appDetalle .label{
@@ -24,6 +29,10 @@
 }
 
 #appDetalle .label:hover{
+    -fx-underline: true;
+}
+
+#appGrafica .label{
     -fx-underline: true;
 }
 

@@ -28,7 +28,7 @@ public class AppController implements Initializable {
     private TranslateTransition animation, animationBtn;
 
     @FXML
-    private Button btnMenu;
+    private Button btnMenu, btnRecarga;
     @FXML
     private VBox vBoxIzquierda;
 
@@ -91,7 +91,8 @@ public class AppController implements Initializable {
     @FXML
     private void vistaGrafica() {
         appGrafica.setVisible(true);
-        appGraficaController.cargarDatos(listaDatos);
+        appGraficaController.cargarDatosPieChartGenero(listaDatos);
+        appGraficaController.cargarDatosPieChartEspecie(listaDatos);
     }
 
     @FXML
@@ -112,8 +113,7 @@ public class AppController implements Initializable {
         Runnable task = () -> {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15" +
-                            "16,17,18,19,20,21,22,23,24,25,26,27,28,29,30"))
+                    .uri(URI.create("https://rickandmortyapi.com/api/character/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,361"))
                     .build();
             HttpResponse<String> response = null;
             try {
