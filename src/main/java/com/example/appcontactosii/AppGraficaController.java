@@ -49,13 +49,13 @@ public class AppGraficaController {
             }
         }
 
-            ObservableList<PieChart.Data> datosGraficoCircular = FXCollections.observableArrayList(
-                    new PieChart.Data("Hombre", contadorMale),
-                    new PieChart.Data("Mujer", contadorFemale),
-                    new PieChart.Data("Desconocido", contadorUnknown));
-            graficaGenero.setData(datosGraficoCircular);
-            graficaGenero.setClockwise(false);
-            graficaGenero.setTitle("Género personajes");
-        }
-
+        ObservableList<PieChart.Data> datosGraficoCircular = FXCollections.observableArrayList(
+                new PieChart.Data("Hombre", contadorMale),
+                new PieChart.Data("Mujer", contadorFemale),
+                new PieChart.Data("Desconocido", contadorUnknown));
+        graficaGenero.setData(datosGraficoCircular);
+        graficaGenero.setClockwise(false);
+        graficaGenero.setTitle("Género personajes");
     }
+
+}
