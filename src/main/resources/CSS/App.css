@@ -15,6 +15,11 @@
     -fx-font-size: 15px;
 }
 
+.list-cell:filled:hover {
+    -fx-background-color: #0093ff;
+    -fx-text-fill: white;
+}
+
 #btnAtras .ikonli-font-icon {
     -fx-icon-color: white;
 }
