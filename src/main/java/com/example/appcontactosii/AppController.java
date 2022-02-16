@@ -115,12 +115,12 @@ public class AppController implements Initializable {
         Runnable task = () -> {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://rickandmortyapi.com/api/character/?page="+Math.random()*29+1))
+                    .uri(URI.create("https://rickandmortyapi.com/api/character/?page="+Math.random()*40+1))
                     .build();
             HttpResponse<String> response = null;
             try {
                 response = client.send(request, HttpResponse.BodyHandlers.ofString());
-                Platform.runLater(()->listaViewPersonajes.getItems().removeAll(listaDatos));//listaViewPersonajes.getItems().removeAll(listaDatos);
+                Platform.runLater(()->listaViewPersonajes.getItems().removeAll(listaDatos));
                 System.out.println(response.body());
                 JSONArray dataArray = new JSONArray(response.body().substring(163,response.body().length()-1));
 

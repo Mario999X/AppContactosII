@@ -20,7 +20,7 @@
             <children>
                 <ImageView fx:id="imagenPersonaje" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                     <VBox.margin>
-                        <Insets left="25.0" right="25.0" top="30.0" />
+                        <Insets left="35.0" right="25.0" top="30.0" />
                     </VBox.margin>
                 </ImageView>
                 <VBox fx:id="vBoxInfo" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
