@@ -107,8 +107,9 @@ public class AppPrincipalController implements Initializable {
     private void preferenciasMenu() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(null);
-        alert.setTitle("Preferencias");
-        alert.setContentText("Idiomas disponibles (cambiable en la clase App.java): Español/Inglés");
+        alert.setTitle("Preferencias | Preferences");
+        alert.setContentText("Idiomas disponibles (cambiable en la clase App.java): Español/Inglés \n" +
+                "Available languages (changeable in the App.java class): Spanish/English");
         alert.showAndWait();
     }
 
