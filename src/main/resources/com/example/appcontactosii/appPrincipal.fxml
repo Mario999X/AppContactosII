@@ -10,7 +10,7 @@
     <children>
         <Label fx:id="lblNumPaginaTexto" text="%lblNumPagina" StackPane.alignment="BOTTOM_RIGHT">
             <padding>
-                <Insets right="15.0" />
+                <Insets right="17.0" />
             </padding>
          <font>
             <Font size="14.0" />
@@ -20,6 +20,9 @@
             <StackPane.margin>
                 <Insets />
             </StackPane.margin>
+         <padding>
+            <Insets right="2.0" />
+         </padding>
         </Label>
         <Button fx:id="btnRecarga" maxWidth="-Infinity" mnemonicParsing="false" onAction="#iniciaLista" prefWidth="100.0" StackPane.alignment="TOP_RIGHT">
             <graphic>
