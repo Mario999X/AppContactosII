@@ -1,6 +1,7 @@
 package com.example.appcontactosii;
 
 public class Personaje {
+    private int id;
     private String imagen;
     private String nombre;
     private String estado;
@@ -8,7 +9,8 @@ public class Personaje {
     private String genero;
 
 
-    public Personaje(String imagen, String nombre, String estado, String especie, String genero) {
+    public Personaje(int id, String imagen, String nombre, String estado, String especie, String genero) {
+        this.id = id;
         this.imagen = imagen;
         this.nombre = nombre;
         this.estado = estado;
@@ -19,6 +21,10 @@ public class Personaje {
     @Override
     public String toString() {
         return nombre;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getImagen() {

@@ -21,7 +21,7 @@ import java.net.http.HttpResponse;
 import java.util.ResourceBundle;
 
 // CONTROLADOR VISTA PRINCIPAL
-public class AppController implements Initializable {
+public class AppPrincipalController implements Initializable {
     private boolean desplegado;
     private TranslateTransition animation, animationBtn;
 
@@ -32,7 +32,7 @@ public class AppController implements Initializable {
     @FXML
     private Label lblNumPagina;
     @FXML
-    private StackPane appPrincipal, appDetalle, appGrafica;
+    private StackPane appPrincipal, appDetalle, appGrafica, appTabla;
     @FXML
     private ListView<Personaje> listaViewPersonajes;
     private ObservableList<Personaje> listaDatos;
@@ -40,6 +40,9 @@ public class AppController implements Initializable {
     private AppDetalleController appDetalleController;
     @FXML
     private AppGraficaController appGraficaController;
+    @FXML
+    private AppTablaController appTablaController;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,6 +51,7 @@ public class AppController implements Initializable {
         desplegado = false;
         appDetalle.setVisible(false);
         appGrafica.setVisible(false);
+        appTabla.setVisible(false);
         iniciaLista();
         listaViewPersonajes.setItems(listaDatos);
         listaViewPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -93,6 +97,11 @@ public class AppController implements Initializable {
         appGraficaController.cargarDatosPieChartGenero(listaDatos);
         appGraficaController.cargarDatosPieChartEspecie(listaDatos);
     }
+    @FXML
+    private void vistaTabla(){
+        appTabla.setVisible(true);
+        appTablaController.cargarTabla(listaDatos);
+    }
 
     @FXML
     private void preferenciasMenu() {
@@ -126,15 +135,14 @@ public class AppController implements Initializable {
                 JSONArray dataArray = new JSONArray(response.body().substring(163, response.body().length() - 1));
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject row = dataArray.getJSONObject(i);
-                    Platform.runLater(() -> listaDatos.add(new Personaje(row.getString("image"),
+                    Platform.runLater(() -> listaDatos.add(new Personaje(row.getInt("id"),
+                            row.getString("image"),
                             row.getString("name"),
                             row.getString("status"),
                             row.getString("species"),
                             row.getString("gender"))));
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
         };
