@@ -38,6 +38,14 @@
                   <Insets bottom="3.0" top="3.0" />
                </VBox.margin>
                 </Button>
+            <Button fx:id="btnTabla" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#vistaTabla" text="%btnTabla">
+                <graphic>
+                    <FontIcon iconLiteral="bx-table" />
+                </graphic>
+               <VBox.margin>
+                  <Insets bottom="3.0" />
+               </VBox.margin>
+            </Button>
                 <Button fx:id="btnSalir" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#salirApp" text="%btnSalir">
                     <graphic>
                         <FontIcon iconLiteral="bx-run" />
@@ -54,5 +62,6 @@
         <Button fx:id="btnMenu" mnemonicParsing="false" onAction="#desplegacion" text="%btnMenu" StackPane.alignment="TOP_LEFT" />
         <fx:include fx:id="appDetalle" source="appDetalle.fxml" />
         <fx:include fx:id="appGrafica" source="appGrafica.fxml" />
+        <fx:include fx:id="appTabla" source="appTabla.fxml" />
     </children>
 </StackPane>
