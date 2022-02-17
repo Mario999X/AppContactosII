@@ -21,7 +21,7 @@ import java.net.http.HttpResponse;
 import java.util.ResourceBundle;
 
 // CONTROLADOR VISTA PRINCIPAL
-public class AppController implements Initializable {
+public class AppPrincipalController implements Initializable {
     private boolean desplegado;
     private TranslateTransition animation, animationBtn;
 
@@ -142,9 +142,7 @@ public class AppController implements Initializable {
                             row.getString("species"),
                             row.getString("gender"))));
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
         };

@@ -2,17 +2,22 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
 
 <StackPane fx:id="appTabla" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FEFEFE;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appcontactosii.AppTablaController">
    <children>
-      <Button fx:id="btnAtrasT" mnemonicParsing="false" onAction="#volverPrincipalT" text="%btnAtras" StackPane.alignment="TOP_LEFT" />
-      <TableView fx:id="tablaPersonajes" maxWidth="-Infinity" prefHeight="400.0" prefWidth="420.0" StackPane.alignment="CENTER">
+      <Button fx:id="btnAtrasT" mnemonicParsing="false" onAction="#volverPrincipalT" text="%btnAtras" StackPane.alignment="TOP_LEFT">
+          <graphic>
+              <FontIcon iconLiteral="antf-aliwangwang" />
+          </graphic>
+      </Button>
+      <TableView fx:id="tablaPersonajes" maxWidth="-Infinity" prefHeight="400.0" prefWidth="425.0" StackPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="columnId" prefWidth="30.0" text="ID" />
-          <TableColumn fx:id="columnNombre" prefWidth="149.0" text="Nombre" />
-            <TableColumn fx:id="columnEstado" prefWidth="86.0" text="Estado" />
-            <TableColumn fx:id="columnEspecie" prefWidth="79.0" text="Especie" />
-            <TableColumn fx:id="columnGenero" prefWidth="75.0" text="Género" />
+          <TableColumn fx:id="columnNombre" prefWidth="170.0" text="%cNombre" />
+            <TableColumn fx:id="columnEstado" prefWidth="74.0" text="%cEstado" />
+            <TableColumn fx:id="columnEspecie" prefWidth="79.0" text="%cEspecie" />
+            <TableColumn fx:id="columnGenero" prefWidth="71.0" text="%cGenero" />
         </columns>
       </TableView>
    </children>

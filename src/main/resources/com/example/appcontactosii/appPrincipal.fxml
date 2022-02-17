@@ -3,14 +3,18 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import org.kordamp.ikonli.javafx.*?>
 
-<StackPane fx:id="appPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../CSS/App.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appcontactosii.AppController">
+<StackPane fx:id="appPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../CSS/App.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appcontactosii.AppPrincipalController">
     <children>
         <Label fx:id="lblNumPaginaTexto" text="%lblNumPagina" StackPane.alignment="BOTTOM_RIGHT">
             <padding>
                 <Insets right="15.0" />
             </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
         </Label>
         <Label fx:id="lblNumPagina" StackPane.alignment="BOTTOM_RIGHT">
             <StackPane.margin>
