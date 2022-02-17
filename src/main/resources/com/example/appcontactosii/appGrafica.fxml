@@ -5,14 +5,20 @@
 <?import javafx.scene.layout.*?>
 <?import org.kordamp.ikonli.javafx.*?>
 
-<StackPane fx:id="appGrafica" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FEFEFE;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appcontactosii.AppGraficaController">
+<StackPane fx:id="appGrafica" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity"
+           minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FEFEFE;"
+           xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.appcontactosii.AppGraficaController">
     <children>
-        <Button fx:id="btnAtrasG" mnemonicParsing="false" onAction="#volverPrincipalG" text="%btnAtras" StackPane.alignment="TOP_LEFT">
+        <Button fx:id="btnAtrasG" mnemonicParsing="false" onAction="#volverPrincipalG" text="%btnAtras"
+                StackPane.alignment="TOP_LEFT">
             <graphic>
-                <FontIcon iconLiteral="antf-aliwangwang" />
+                <FontIcon iconLiteral="antf-aliwangwang"/>
             </graphic>
         </Button>
-        <PieChart fx:id="graficaGenero" legendSide="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="215.0" prefWidth="400.0" title="%lblGraficaGenero" StackPane.alignment="TOP_CENTER" />
-      <PieChart fx:id="graficaEspecie" legendSide="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="215.0" prefWidth="400.0" title="%lblGraficaEspecie" StackPane.alignment="BOTTOM_CENTER" />
+        <PieChart fx:id="graficaGenero" legendSide="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="215.0"
+                  prefWidth="400.0" title="%lblGraficaGenero" StackPane.alignment="TOP_CENTER"/>
+        <PieChart fx:id="graficaEspecie" legendSide="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="215.0"
+                  prefWidth="400.0" title="%lblGraficaEspecie" StackPane.alignment="BOTTOM_CENTER"/>
     </children>
 </StackPane>

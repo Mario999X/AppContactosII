@@ -105,27 +105,28 @@ public class AppController implements Initializable {
 
     @FXML
     private void salirApp() {
+        System.out.println("Los nombres son el boss final de la programación.");
         System.exit(0);
     }
 
     @FXML
     private void iniciaLista() {
-        double numRandom = Math.random()*40+1;
-        lblNumPagina.setText("" + Math.round(numRandom-1));
+        double numRandom = Math.random() * 40 + 1;
+        lblNumPagina.setText("" + Math.round(numRandom - 1));
         Runnable task = () -> {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://rickandmortyapi.com/api/character/?page="+  numRandom))
+                    .uri(URI.create("https://rickandmortyapi.com/api/character/?page=" + Math.round(numRandom)))
                     .build();
             HttpResponse<String> response = null;
             try {
                 response = client.send(request, HttpResponse.BodyHandlers.ofString());
-                Platform.runLater(()->listaViewPersonajes.getItems().removeAll(listaDatos));
+                Platform.runLater(() -> listaViewPersonajes.getItems().removeAll(listaDatos));
                 System.out.println(response.body());
-                JSONArray dataArray = new JSONArray(response.body().substring(163,response.body().length()-1));
+                JSONArray dataArray = new JSONArray(response.body().substring(163, response.body().length() - 1));
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject row = dataArray.getJSONObject(i);
-                    Platform.runLater(()->listaDatos.add(new Personaje(row.getString("image"),
+                    Platform.runLater(() -> listaDatos.add(new Personaje(row.getString("image"),
                             row.getString("name"),
                             row.getString("status"),
                             row.getString("species"),
