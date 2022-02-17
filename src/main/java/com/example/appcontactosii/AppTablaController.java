@@ -9,22 +9,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 
 public class AppTablaController {
-    /// CODIGO PROFE
-
-        @FXML private TableView tablaPersonajes;
-        @FXML private TableColumn<?, ?> columnId;
-        @FXML private TableColumn<?, ?> columnNombre;
-        @FXML private TableColumn<?, ?> columnEstado;
-        @FXML private TableColumn<?, ?> columnEspecie;
-        @FXML private TableColumn<?, ?> columnGenero;
-        private ObservableList<Personaje> personajeObservableList;
-
-    /// FIN CODIGO PROFE
-
-
-
     @FXML
     private StackPane appTabla;
+    @FXML private TableView tablaPersonajes;
+    @FXML private TableColumn<?, ?> columnId;
+    @FXML private TableColumn<?, ?> columnNombre;
+    @FXML private TableColumn<?, ?> columnEstado;
+    @FXML private TableColumn<?, ?> columnEspecie;
+    @FXML private TableColumn<?, ?> columnGenero;
 
     @FXML
     private void volverPrincipalT(){
@@ -33,14 +25,13 @@ public class AppTablaController {
 
     public void cargarTabla(ObservableList<Personaje> lista){
         //Inicializar tabla
-        tablaPersonajes.setEditable(true);
+        tablaPersonajes.setEditable(false);
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
         columnEstado.setCellValueFactory(new PropertyValueFactory<>("estado"));
         columnEspecie.setCellValueFactory(new PropertyValueFactory<>("especie"));
         columnGenero.setCellValueFactory(new PropertyValueFactory<>("genero"));
-        personajeObservableList = FXCollections.observableArrayList();
-        tablaPersonajes.setItems(personajeObservableList);
+        tablaPersonajes.setItems(lista);
     }
 
 
