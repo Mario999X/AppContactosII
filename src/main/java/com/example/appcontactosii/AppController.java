@@ -6,10 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
 import org.json.JSONArray;
@@ -29,10 +26,11 @@ public class AppController implements Initializable {
     private TranslateTransition animation, animationBtn;
 
     @FXML
-    private Button btnMenu, btnRecarga;
+    private Button btnMenu;
     @FXML
     private VBox vBoxIzquierda;
-
+    @FXML
+    private Label lblNumPagina;
     @FXML
     private StackPane appPrincipal, appDetalle, appGrafica;
     @FXML
@@ -112,10 +110,12 @@ public class AppController implements Initializable {
 
     @FXML
     private void iniciaLista() {
+        double numRandom = Math.random()*40+1;
+        lblNumPagina.setText("" + Math.round(numRandom-1));
         Runnable task = () -> {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://rickandmortyapi.com/api/character/?page="+Math.random()*40+1))
+                    .uri(URI.create("https://rickandmortyapi.com/api/character/?page="+  numRandom))
                     .build();
             HttpResponse<String> response = null;
             try {
@@ -123,7 +123,6 @@ public class AppController implements Initializable {
                 Platform.runLater(()->listaViewPersonajes.getItems().removeAll(listaDatos));
                 System.out.println(response.body());
                 JSONArray dataArray = new JSONArray(response.body().substring(163,response.body().length()-1));
-
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject row = dataArray.getJSONObject(i);
                     Platform.runLater(()->listaDatos.add(new Personaje(row.getString("image"),

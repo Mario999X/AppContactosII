@@ -36,6 +36,10 @@
     -fx-underline: true;
 }
 
+#lblNumPaginaTexto {
+    -fx-underline: true;
+}
+
 .list-view .list-cell {
     -fx-text-fill: black;
     -fx-border-width: 0.7px;

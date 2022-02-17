@@ -12,7 +12,7 @@
                 <FontIcon iconLiteral="antf-aliwangwang" />
             </graphic>
         </Button>
-        <PieChart fx:id="graficaGenero" legendSide="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="215.0" prefWidth="400.0" StackPane.alignment="TOP_CENTER" />
-      <PieChart fx:id="graficaEspecie" legendSide="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="215.0" prefWidth="400.0" StackPane.alignment="BOTTOM_CENTER" />
+        <PieChart fx:id="graficaGenero" legendSide="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="215.0" prefWidth="400.0" title="%lblGraficaGenero" StackPane.alignment="TOP_CENTER" />
+      <PieChart fx:id="graficaEspecie" legendSide="LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="215.0" prefWidth="400.0" title="%lblGraficaEspecie" StackPane.alignment="BOTTOM_CENTER" />
     </children>
 </StackPane>

@@ -3,10 +3,8 @@ package com.example.appcontactosii;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
 // CONTROLADOR VISTA DE GRÁFICAS
@@ -48,7 +46,6 @@ public class AppGraficaController {
                 new PieChart.Data("Desconocido", contadorUnknown));
         graficaGenero.setData(datosGraficoCircular);
         graficaGenero.setClockwise(false);
-        graficaGenero.setTitle("Género personajes");
     }
 
     public void cargarDatosPieChartEspecie(ObservableList<Personaje> lista) {
@@ -75,7 +72,6 @@ public class AppGraficaController {
                 new PieChart.Data("Otros", contadorResto));
         graficaEspecie.setData(datosGraficoCircular);
         graficaEspecie.setClockwise(false);
-        graficaEspecie.setTitle("Humanos vs Aliens");
 
     }
 
