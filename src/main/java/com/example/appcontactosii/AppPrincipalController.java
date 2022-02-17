@@ -97,8 +97,9 @@ public class AppPrincipalController implements Initializable {
         appGraficaController.cargarDatosPieChartGenero(listaDatos);
         appGraficaController.cargarDatosPieChartEspecie(listaDatos);
     }
+
     @FXML
-    private void vistaTabla(){
+    private void vistaTabla() {
         appTabla.setVisible(true);
         appTablaController.cargarTabla(listaDatos);
     }
