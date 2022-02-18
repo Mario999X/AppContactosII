@@ -122,7 +122,7 @@ public class AppPrincipalController implements Initializable {
 
     @FXML
     private void iniciaLista() {
-        double numRandom = Math.random() * 40 + 1;
+        double numRandom = (Math.random() * 40) + 1;
         lblNumPagina.setText("" + Math.round(numRandom - 1));
         Runnable task = () -> {
             HttpClient client = HttpClient.newHttpClient();

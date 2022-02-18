@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import org.kordamp.ikonli.javafx.*?>
@@ -11,14 +12,17 @@
               <FontIcon iconLiteral="antf-aliwangwang" />
           </graphic>
       </Button>
-      <TableView fx:id="tablaPersonajes" maxWidth="-Infinity" prefHeight="400.0" prefWidth="425.0" StackPane.alignment="CENTER">
+      <TableView fx:id="tablaPersonajes" maxWidth="-Infinity" prefHeight="400.0" prefWidth="430.0" StackPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="columnId" prefWidth="30.0" text="ID" />
-          <TableColumn fx:id="columnNombre" prefWidth="170.0" text="%cNombre" />
-            <TableColumn fx:id="columnEstado" prefWidth="74.0" text="%cEstado" />
+          <TableColumn fx:id="columnNombre" prefWidth="175.0" text="%cNombre" />
+            <TableColumn fx:id="columnEstado" prefWidth="69.0" text="%cEstado" />
             <TableColumn fx:id="columnEspecie" prefWidth="79.0" text="%cEspecie" />
-            <TableColumn fx:id="columnGenero" prefWidth="71.0" text="%cGenero" />
+            <TableColumn fx:id="columnGenero" prefWidth="76.0" text="%cGenero" />
         </columns>
+         <StackPane.margin>
+            <Insets left="10.0" />
+         </StackPane.margin>
       </TableView>
    </children>
 </StackPane>
