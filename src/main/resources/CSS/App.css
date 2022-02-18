@@ -1,4 +1,4 @@
-.button{
+.button {
     -fx-border-color: null;
     -fx-background-color: black;
     -fx-background-radius: 5px;
@@ -6,19 +6,84 @@
     -fx-text-fill: #eeeeee;
 }
 
-.button:hover  {
+.button:hover {
     -fx-background-color: #555555;
 
 }
 
-.label{
-    -fx-font-size: 13px;
-}
-
-#btnAtras .ikonli-font-icon {
+.button .ikonli-font-icon {
     -fx-icon-color: white;
+    -fx-icon-size: 20px;
 }
 
-#btnAtras:hover .ikonli-font-icon{
-    -fx-icon-color: black ;
+.button:hover .ikonli-font-icon {
+    -fx-icon-color: black;
 }
+
+.label .ikonli-font-icon {
+    -fx-icon-size: 20px;
+}
+
+#appDetalle .label {
+    -fx-font-size: 15px;
+}
+
+#appDetalle .label:hover {
+    -fx-underline: true;
+}
+
+#appGrafica .label {
+    -fx-underline: true;
+}
+
+#lblNumPaginaTexto {
+    -fx-underline: true;
+}
+
+.list-view .list-cell {
+    -fx-border-color: #ccf5ff;
+    -fx-background-color: #edf4fa;
+}
+
+.list-cell:filled:hover {
+    -fx-text-background-color: #0093ff
+}
+
+.list-cell:selected { -fx-text-background-color: #0068C2;
+}
+
+.table-view .corner {
+    -fx-background-color: #edf4fa;
+}
+
+.table-view .column-header {
+    -fx-background-color: linear-gradient(to bottom, #ccf5ff, #edf4fa);
+}
+
+.table-view .table-cell{
+    -fx-border-color: #ccf5ff;
+}
+
+.table-row-cell {
+    -fx-background-color: #edf4fa;
+}
+
+.table-row-cell:hover {
+    -fx-text-background-color: #0093ff;
+}
+
+.table-row-cell:selected { -fx-text-background-color: #0068C2;
+}
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color: #edf4fa;
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color: #edf4fa;
+}
+
