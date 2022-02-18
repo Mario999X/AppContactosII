@@ -1,6 +1,6 @@
 # --- App Contactos (Parte II) ---
 
-La aplicación trata sobre obtener personajes de forma "aleatoria" realizando una llamada a una API (https://rickandmortyapi.com/api).
+La aplicación trata sobre obtener personajes de forma "aleatoria" realizando una llamada a una API (https://rickandmortyapi.com).
 
 Cuenta con una interfaz sencilla y minimalista, realizada con JavaFX y aplicándole estilos con CSS.
 
