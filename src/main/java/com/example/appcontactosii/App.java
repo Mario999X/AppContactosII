@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+// CLASE QUE INICIA LA APLICACIÓN
 public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {

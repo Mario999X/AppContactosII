@@ -1,5 +1,7 @@
 package com.example.appcontactosii;
 
+
+// CLASE PERSONAJE
 public class Personaje {
     private int id;
     private String imagen;

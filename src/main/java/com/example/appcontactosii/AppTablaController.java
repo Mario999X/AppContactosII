@@ -7,6 +7,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.StackPane;
 
+// CONTROLADOR VISTA TABLA
 public class AppTablaController {
     @FXML
     private StackPane appTabla;

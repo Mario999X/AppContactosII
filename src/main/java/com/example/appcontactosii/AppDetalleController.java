@@ -11,7 +11,6 @@ import javafx.scene.layout.VBox;
 
 import java.net.URI;
 
-
 // CONTROLADOR VISTA ANIDADA
 public class AppDetalleController {
 

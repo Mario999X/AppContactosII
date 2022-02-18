@@ -23,7 +23,6 @@ public class AppGraficaController{
 
     private ResourceBundle resourceBundle;
 
-
     @FXML
     private void volverPrincipalG() {
         appGrafica.setVisible(false);
