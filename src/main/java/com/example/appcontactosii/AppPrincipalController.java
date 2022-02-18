@@ -122,20 +122,21 @@ public class AppPrincipalController implements Initializable {
 
     @FXML
     private void iniciaLista() {
-        double numRandom = (Math.random() * 40) + 1;
-        lblNumPagina.setText("" + Math.round(numRandom - 1));
+        int numRandom = (int) Math.floor(Math.random() * 42 + 1);
+        System.out.println(numRandom);
+        lblNumPagina.setText("" + numRandom);
         Runnable task = () -> {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://rickandmortyapi.com/api/character/?page=" + Math.round(numRandom)))
+                    .uri(URI.create("https://rickandmortyapi.com/api/character?page=" + numRandom))
                     .build();
             HttpResponse<String> response = null;
             try {
                 response = client.send(request, HttpResponse.BodyHandlers.ofString());
                 Platform.runLater(() -> listaViewPersonajes.getItems().removeAll(listaDatos));
-                System.out.println(response.body());
 //              JSONArray dataArray = new JSONArray(response.body().substring(163, response.body().length() - 1)); ESTO SE DEJA PARA LA POSTERIDAD.
                 JSONObject responseObject = new JSONObject(response.body());
+                System.out.println(response.body());
                 JSONArray dataArray = new JSONArray(responseObject.getJSONArray("results"));
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject row = dataArray.getJSONObject(i);

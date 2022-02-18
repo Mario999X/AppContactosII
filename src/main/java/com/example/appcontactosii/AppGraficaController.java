@@ -3,12 +3,16 @@ package com.example.appcontactosii;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 // CONTROLADOR VISTA DE GRÁFICAS
-public class AppGraficaController {
+public class AppGraficaController{
 
     @FXML
     private StackPane appGrafica;
@@ -16,6 +20,9 @@ public class AppGraficaController {
     private Button btnAtrasG;
     @FXML
     private PieChart graficaGenero, graficaEspecie;
+
+    private ResourceBundle resourceBundle;
+
 
     @FXML
     private void volverPrincipalG() {
@@ -67,7 +74,7 @@ public class AppGraficaController {
         int contadorResto = lista.size() - contadorAlien - contadorHuman;
 
         ObservableList<PieChart.Data> datosGraficoCircular = FXCollections.observableArrayList(
-                new PieChart.Data("Humano", contadorHuman),
+                new PieChart.Data("Hombre", contadorHuman),
                 new PieChart.Data("Alien", contadorAlien),
                 new PieChart.Data("Otros", contadorResto));
         graficaEspecie.setData(datosGraficoCircular);
