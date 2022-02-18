@@ -24,11 +24,15 @@ public class AppTablaController {
     @FXML
     private TableColumn<?, ?> columnGenero;
 
+    // Metodo encargado de ocultar la vista appTabla
     @FXML
-    private void volverPrincipalT() {appTabla.setVisible(false);}
+    private void volverPrincipalT() {
+        appTabla.setVisible(false);
+    }
 
+    // Metodo encargado de iniciar la tabla, parecido al caso del metodo "cargarPersonaje" o los de la grafica; es llamado en AppPrincipalController
     public void cargarTabla(ObservableList<Personaje> lista) {
-        //Inicializar tabla
+        // Inicializar tabla
         tablaPersonajes.setEditable(true);
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));

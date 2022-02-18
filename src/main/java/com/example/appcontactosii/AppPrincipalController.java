@@ -58,7 +58,7 @@ public class AppPrincipalController implements Initializable {
         listaViewPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         listaViewPersonajes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                appDetalleController.cargarPersona(newValue.getImagen(), newValue.getNombre(), newValue.getEstado(),
+                appDetalleController.cargarPersonaje(newValue.getImagen(), newValue.getNombre(), newValue.getEstado(),
                         newValue.getEspecie(), newValue.getGenero());
                 vistaDetalle();
             }
@@ -134,7 +134,7 @@ public class AppPrincipalController implements Initializable {
     }
 
     /* Metodo que crea un hilo, llama a una API, recoge la informacion de campos seleccionados y los enlaza al objeto.
-       Ls lista es agregada al ListView creado desde el editor en el metodo "initialize".
+       La lista es agregada al ListView, creada desde el editor, en el metodo "initialize" de esta misma clase.
      */
     @FXML
     private void iniciaLista() {

@@ -10,7 +10,7 @@ public class Personaje {
     private String especie;
     private String genero;
 
-
+    // Constructor de personaje
     public Personaje(int id, String imagen, String nombre, String estado, String especie, String genero) {
         this.id = id;
         this.imagen = imagen;
@@ -20,10 +20,13 @@ public class Personaje {
         this.genero = genero;
     }
 
+    // Sirve para que en el ListView solo aparezca el nombre del personaje y no el resto de datos.
     @Override
     public String toString() {
         return nombre;
     }
+
+    //Generacion de Get & Set
 
     public int getId() {
         return id;

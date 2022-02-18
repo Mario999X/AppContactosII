@@ -22,7 +22,7 @@ public class App extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("appPrincipal.fxml"), resourceBundle);
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Aplicación Rick y Morty");
+        stage.setTitle("Aplicación Rick y Morty Random");
         stage.setScene(scene);
         stage.setMinHeight(542);
         stage.setMinWidth(620);
