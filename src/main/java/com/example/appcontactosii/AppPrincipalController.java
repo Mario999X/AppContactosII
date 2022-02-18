@@ -32,7 +32,7 @@ public class AppPrincipalController implements Initializable {
     @FXML
     private Label lblNumPagina;
     @FXML
-    private StackPane appPrincipal, appDetalle, appGrafica, appTabla;
+    private StackPane appDetalle, appGrafica, appTabla;
     @FXML
     private ListView<Personaje> listaViewPersonajes;
     private ObservableList<Personaje> listaDatos;
@@ -44,6 +44,7 @@ public class AppPrincipalController implements Initializable {
     private AppTablaController appTablaController;
 
 
+    // El metodo initialize: se encarga de arrancar las variables, metodos, etc... lo antes posible.
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         listaDatos = FXCollections.observableArrayList();
@@ -64,6 +65,7 @@ public class AppPrincipalController implements Initializable {
         });
     }
 
+    // Metodo encargado de desplegar/ocultar un vBox localizado en la izquierda de la vista.
     @FXML
     private void desplegacion() {
         animation = new TranslateTransition(Duration.millis(300), vBoxIzquierda);
@@ -86,11 +88,16 @@ public class AppPrincipalController implements Initializable {
         animationBtn.play();
     }
 
+    // Metodo encargado de hacer visible la vista appDetalle.
     @FXML
     private void vistaDetalle() {
         appDetalle.setVisible(true);
     }
 
+    /* Metodo encargado de hacer visible la vista appGrafica.
+       En este metodo, hacemos uso de los metodos creados en la appGrafica, pasando la variable
+       necesaria; y usando el controlador especifico de esa misma clase.
+     */
     @FXML
     private void vistaGrafica() {
         appGrafica.setVisible(true);
@@ -98,12 +105,17 @@ public class AppPrincipalController implements Initializable {
         appGraficaController.cargarDatosPieChartEspecie(listaDatos);
     }
 
+    /*  Metodo encargado de hacer visible la vista appTabla.
+        En este metodo, hacemos uso del metodo creado en la appTabla, pasando la variable
+        necesaria; y usando el controlador especifico de esa misma clase.
+     */
     @FXML
     private void vistaTabla() {
         appTabla.setVisible(true);
         appTablaController.cargarTabla(listaDatos);
     }
 
+    // Este metodo solo muestra una alerta informativa.
     @FXML
     private void preferenciasMenu() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -114,16 +126,19 @@ public class AppPrincipalController implements Initializable {
         alert.showAndWait();
     }
 
+    // Este metodo se encarga de cerrar la aplicacion al completo.
     @FXML
     private void salirApp() {
         System.out.println("Los nombres son el boss final de la programación.");
         System.exit(0);
     }
 
+    /* Metodo que crea un hilo, llama a una API, recoge la informacion de campos seleccionados y los enlaza al objeto.
+       Ls lista es agregada al ListView creado desde el editor en el metodo "initialize".
+     */
     @FXML
     private void iniciaLista() {
         int numRandom = (int) Math.floor(Math.random() * 42 + 1);
-        System.out.println(numRandom);
         lblNumPagina.setText("" + numRandom);
         Runnable task = () -> {
             HttpClient client = HttpClient.newHttpClient();
@@ -134,9 +149,8 @@ public class AppPrincipalController implements Initializable {
             try {
                 response = client.send(request, HttpResponse.BodyHandlers.ofString());
                 Platform.runLater(() -> listaViewPersonajes.getItems().removeAll(listaDatos));
-//              JSONArray dataArray = new JSONArray(response.body().substring(163, response.body().length() - 1)); ESTO SE DEJA PARA LA POSTERIDAD.
+                //JSONArray dataArray = new JSONArray(response.body().substring(163, response.body().length() - 1)); ESTO SE DEJA PARA LA POSTERIDAD.
                 JSONObject responseObject = new JSONObject(response.body());
-                System.out.println(response.body());
                 JSONArray dataArray = new JSONArray(responseObject.getJSONArray("results"));
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject row = dataArray.getJSONObject(i);
