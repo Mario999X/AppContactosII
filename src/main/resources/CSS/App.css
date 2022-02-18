@@ -1,4 +1,4 @@
-.button{
+.button {
     -fx-border-color: null;
     -fx-background-color: black;
     -fx-background-radius: 5px;
@@ -6,7 +6,7 @@
     -fx-text-fill: #eeeeee;
 }
 
-.button:hover  {
+.button:hover {
     -fx-background-color: #555555;
 
 }
@@ -24,15 +24,15 @@
     -fx-icon-size: 20px;
 }
 
-#appDetalle .label{
+#appDetalle .label {
     -fx-font-size: 15px;
 }
 
-#appDetalle .label:hover{
+#appDetalle .label:hover {
     -fx-underline: true;
 }
 
-#appGrafica .label{
+#appGrafica .label {
     -fx-underline: true;
 }
 

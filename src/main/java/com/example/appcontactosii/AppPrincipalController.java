@@ -134,7 +134,9 @@ public class AppPrincipalController implements Initializable {
                 response = client.send(request, HttpResponse.BodyHandlers.ofString());
                 Platform.runLater(() -> listaViewPersonajes.getItems().removeAll(listaDatos));
                 System.out.println(response.body());
-                JSONArray dataArray = new JSONArray(response.body().substring(163, response.body().length() - 1));
+//              JSONArray dataArray = new JSONArray(response.body().substring(163, response.body().length() - 1)); ESTO SE DEJA PARA LA POSTERIDAD.
+                JSONObject responseObject = new JSONObject(response.body());
+                JSONArray dataArray = new JSONArray(responseObject.getJSONArray("results"));
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject row = dataArray.getJSONObject(i);
                     Platform.runLater(() -> listaDatos.add(new Personaje(row.getInt("id"),
