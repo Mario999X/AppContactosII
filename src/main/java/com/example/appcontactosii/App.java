@@ -17,7 +17,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         // La internacionalizacion del programa se encontrara en resources, dentro de una carpeta "i18n".
         Locale spanish = new Locale("es", "ES");
-        Locale english = new Locale("en", "EN");
+        Locale english = new Locale("en", "UK");
         ResourceBundle resourceBundle = ResourceBundle.getBundle("i18n/strings", spanish);
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("appPrincipal.fxml"), resourceBundle);
