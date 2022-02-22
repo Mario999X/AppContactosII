@@ -30,14 +30,13 @@ public class AppDetalleController {
     En el caso de la imagen, que sera imprimida en un ImageView, es convertida en una URI, puesto que de la
         API se consigue una direccion (String), y eso no es compatible con Image.
      */
-    public void cargarPersonaje(String imagenUri, String nombre, String estado, String especie, String genero) {
-        URI.create(imagenUri);
-        Image imagen = new Image(imagenUri);
+    public void cargarPersonaje(Personaje personaje) {
+        Image imagen = new Image(personaje.getImagen());
         imagenPersonaje.setImage(imagen);
-        nombrePersonaje.setText(nombre);
-        estadoPersonaje.setText(estado);
-        especiePersonaje.setText(especie);
-        generoPersonaje.setText(genero);
+        nombrePersonaje.setText(personaje.getNombre());
+        estadoPersonaje.setText(personaje.getEstado());
+        especiePersonaje.setText(personaje.getEspecie());
+        generoPersonaje.setText(personaje.getGenero());
     }
 
 }

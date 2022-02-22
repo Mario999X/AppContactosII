@@ -58,8 +58,7 @@ public class AppPrincipalController implements Initializable {
         listaViewPersonajes.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         listaViewPersonajes.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
-                appDetalleController.cargarPersonaje(newValue.getImagen(), newValue.getNombre(), newValue.getEstado(),
-                        newValue.getEspecie(), newValue.getGenero());
+                appDetalleController.cargarPersonaje(newValue);
                 vistaDetalle();
             }
         });
